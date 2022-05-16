@@ -3,6 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def baseURLPropertiesFile = rootProject.file("baseurl.properties")
+def baseURLProperties = new Properties()
+baseURLProperties.load(new FileInputStream(baseURLPropertiesFile))
+
 android {
     compileSdk 31
 
@@ -12,6 +16,8 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
+
+        buildConfigField "String", "BASE_URL", baseURLProperties['BASE_URL']
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
