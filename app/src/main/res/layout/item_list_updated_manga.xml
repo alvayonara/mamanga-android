@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/shark"
+    android:paddingBottom="18dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.alvayonara.mamanga.core.utils.ImageScaleView
+            android:id="@+id/iv_poster"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:scaleType="fitTop"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/dummy_poster" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunitosans_extrabold"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_poster"
+        tools:text="Berserk of Gluttony" />
+
+    <TextView
+        android:id="@+id/tv_last_chapter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunitosans_bold"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="Ch. 10" />
+
+    <TextView
+        android:id="@+id/tv_genre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunitosans_regular"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_last_chapter"
+        tools:text="Action, Romance" />
+</androidx.constraintlayout.widget.ConstraintLayout>
