@@ -14,11 +14,11 @@ jobs:
         with:
           java-version: 11.0.12
       # Execute unit tests
-      - name: Unit Test
-        run: ./gradlew testDebugUnitTest
-      - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0
-        if: ${{ always() }}
+#       - name: Unit Test
+#         run: ./gradlew testDebugUnitTest
+#       - name: Android Test Report
+#         uses: asadmansr/android-test-report-action@v1.2.0
+#         if: ${{ always() }}
       # Upload Debug APK  
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.0.0
