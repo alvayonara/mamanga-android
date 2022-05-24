@@ -1,4 +1,4 @@
-package com.alvayonara.mamanga.utils
+package com.alvayonara.mamanga
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,7 +6,6 @@ import android.graphics.Matrix
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.widget.ImageView
-import com.alvayonara.mamanga.R
 
 /**
  * A {@link ImageView} with 2 new custom scale types :  app:scaleType="fitTop" & app:scaleType="fitBottom".
@@ -23,7 +22,8 @@ class ImageScaleView @JvmOverloads constructor(
 
     init {
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.ImageScaleView, defStyleAttr, 0)
-        val customScaleType = ScaleType.getType(typedArray.getString(R.styleable.ImageScaleView_scaleType))
+        val customScaleType =
+            ScaleType.getType(typedArray.getString(R.styleable.ImageScaleView_scaleType))
         scaleType = when (customScaleType) {
             ScaleType.CENTER -> ImageView.ScaleType.CENTER
             ScaleType.CENTER_CROP -> ImageView.ScaleType.CENTER_CROP
@@ -34,7 +34,9 @@ class ImageScaleView @JvmOverloads constructor(
             ScaleType.FIT_XY -> ImageView.ScaleType.FIT_XY
             ScaleType.MATRIX -> ImageView.ScaleType.MATRIX
             ScaleType.FIT_TOP -> ImageView.ScaleType.MATRIX.also { matrixType = MatrixType.FIT_TOP }
-            ScaleType.FIT_BOTTOM -> ImageView.ScaleType.MATRIX.also { matrixType = MatrixType.FIT_BOTTOM }
+            ScaleType.FIT_BOTTOM -> ImageView.ScaleType.MATRIX.also { matrixType =
+                MatrixType.FIT_BOTTOM
+            }
         }
     }
 
