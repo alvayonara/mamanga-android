@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.alvayonara.mamanga.ImageScaleView
+        <com.alvayonara.mamanga.common.customview.ImageScaleView
             android:id="@+id/iv_poster"
             android:layout_width="154dp"
             android:layout_height="100dp"

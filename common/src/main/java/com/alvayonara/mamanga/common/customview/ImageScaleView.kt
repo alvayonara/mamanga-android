@@ -1,4 +1,4 @@
-package com.alvayonara.mamanga
+package com.alvayonara.mamanga.common.customview
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,6 +6,7 @@ import android.graphics.Matrix
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.widget.ImageView
+import com.alvayonara.mamanga.common.R
 
 /**
  * A {@link ImageView} with 2 new custom scale types :  app:scaleType="fitTop" & app:scaleType="fitBottom".

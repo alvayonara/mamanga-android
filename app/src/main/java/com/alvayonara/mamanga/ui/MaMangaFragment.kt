@@ -1,4 +1,4 @@
-package com.alvayonara.mamanga.ui.onboarding
+package com.alvayonara.mamanga.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.alvayonara.mamanga.R
 
-class OnBoardingFragment : Fragment() {
+class MaMangaFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_on_boarding, container, false)
+        return inflater.inflate(R.layout.fragment_mamanga, container, false)
     }
 }
