@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaManga">
         <activity
-            android:name=".ui.BaseActivity"
+            android:name=".ui.MaMangaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
