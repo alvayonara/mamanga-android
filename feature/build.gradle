@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
+}
+apply from: '../shared_dependencies.gradle'
+
+def baseURLPropertiesFile = rootProject.file("baseurl.properties")
+def baseURLProperties = new Properties()
+baseURLProperties.load(new FileInputStream(baseURLPropertiesFile))
+
+android {
+    compileSdk Versions.compileSdk
+
+    defaultConfig {
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
+
+        buildConfigField "String", "BASE_URL", baseURLProperties['BASE_URL']
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+dependencies {
+    implementation project(Modules.core)
+    implementation project(Modules.navigation)
+    implementation project(Modules.common)
+    implementation project(Modules.commonTest)
+
+    // Room
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRunTime)
+    kapt(Libraries.roomCompiler)
+    implementation(Libraries.rxJavaRoom)
+
+    // Shimmer
+    implementation(Libraries.shimmer)
+
+    // Epoxy
+    implementation(Libraries.epoxy)
+    kapt(Libraries.epoxyProcessor)
+}

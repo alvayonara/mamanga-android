@@ -1,21 +1,26 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
 }
+apply from: '../shared_dependencies.gradle'
 
 def baseURLPropertiesFile = rootProject.file("baseurl.properties")
 def baseURLProperties = new Properties()
 baseURLProperties.load(new FileInputStream(baseURLPropertiesFile))
 
 android {
-    compileSdk 31
+    compileSdk Versions.compileSdk
 
     defaultConfig {
-        applicationId "com.alvayonara.mamanga"
-        minSdk 24
-        targetSdk 31
-        versionCode 1
-        versionName "1.0.0"
+        applicationId ApplicationId.id
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
 
         buildConfigField "String", "BASE_URL", baseURLProperties['BASE_URL']
 
@@ -27,24 +32,30 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(Modules.core)
+    implementation project(Modules.navigation)
+    implementation project(Modules.common)
+    implementation project(Modules.commonTest)
 }
