@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
+}
+apply from: '../shared_dependencies.gradle'
+
+def baseURLPropertiesFile = rootProject.file("baseurl.properties")
+def baseURLProperties = new Properties()
+baseURLProperties.load(new FileInputStream(baseURLPropertiesFile))
+
+android {
+    compileSdk Versions.compileSdk
+
+    defaultConfig {
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
+
+        buildConfigField "String", "BASE_URL", baseURLProperties['BASE_URL']
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(Modules.common)
+    implementation project(Modules.commonTest)
+
+    // Room
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRunTime)
+    kapt(Libraries.roomCompiler)
+    implementation(Libraries.rxJavaRoom)
+
+    // Chucker
+    debugImplementation(Libraries.chucker)
+    releaseImplementation(Libraries.chuckerRelease)
+
+    // Lifecycle
+    api(AndroidLibraries.lifecycleViewModel)
+    api(AndroidLibraries.lifecycleLiveData)
+
+    // ViewModel KTX
+    api(AndroidLibraries.activityKtx)
+    api(AndroidLibraries.fragmentKtx)
+
+    // Scroll Page Indicator
+    implementation(Libraries.scrollingPageIndicator)
+
+    // Epoxy
+    implementation(Libraries.epoxy)
+    kapt(Libraries.epoxyProcessor)
+}

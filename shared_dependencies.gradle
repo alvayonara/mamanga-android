@@ -1,0 +1,52 @@
+dependencies {
+    implementation(AndroidLibraries.coreKtx)
+    implementation(AndroidLibraries.appCompat)
+    implementation(AndroidLibraries.material)
+    implementation(AndroidLibraries.constraintLayout)
+    implementation(AndroidLibraries.legacy)
+    implementation(AndroidLibraries.recyclerView)
+    implementation(AndroidLibraries.swipeRefreshLayout)
+
+    // Unit Testing
+    testImplementation(TestLibraries.junit)
+    testImplementation(TestLibraries.mockk)
+    testImplementation(TestLibraries.mockkAndroid)
+    testImplementation(TestLibraries.archCoreTest)
+    testImplementation(TestLibraries.coroutine)
+
+    // Timber
+    implementation(Libraries.timber)
+
+    // Navigation
+    implementation(AndroidLibraries.navigationFrag)
+    implementation(AndroidLibraries.navigation)
+
+    // Dagger 2
+    implementation(Libraries.dagger)
+    kapt(Libraries.daggerCompiler)
+
+    // Glide
+    implementation(Libraries.glide)
+    kapt(Libraries.glideCompiler)
+
+    // Retrofit
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitGsonConverter)
+    implementation(Libraries.httpLoggingInterceptor)
+    implementation(Libraries.rxJavaRetrofit)
+
+    // Kotlin Coroutine
+    implementation(KotlinLibraries.kotlinCoroutineCore)
+    implementation(AndroidLibraries.kotlinCoroutineAndroid)
+
+    // RxJava
+    implementation(Libraries.rxJava)
+    implementation(Libraries.rxAndroid)
+
+    // Chucker
+    debugImplementation(Libraries.chucker)
+    releaseImplementation(Libraries.chuckerRelease)
+
+    // Leak Canary
+    debugImplementation(Libraries.leakCanary)
+}
