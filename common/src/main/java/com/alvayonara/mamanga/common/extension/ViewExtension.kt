@@ -1,4 +1,4 @@
-package com.alvayonara.mamanga
+package com.alvayonara.mamanga.common.extension
 
 import android.annotation.SuppressLint
 import android.content.Context
