@@ -6,12 +6,7 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
-    compileSdk 31
-
-    defaultConfig {
-        minSdk 21
-        targetSdk 31
-    }
+    compileSdk Versions.compileSdk
 }
 
 dependencies {

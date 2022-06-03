@@ -3,12 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mamanga_navigation"
-    app:startDestination="@+id/navigation_fragment">
-
-    <fragment
-        android:id="@+id/navigation_fragment"
-        android:name="com.alvayonara.mamanga.ui.MaMangaFragment"
-        tools:layout="@layout/fragment_mamanga" />
+    app:startDestination="@+id/navigation_dashboard">
 
     <fragment
         android:id="@+id/navigation_dashboard"
