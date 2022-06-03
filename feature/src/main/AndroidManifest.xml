@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.alvayonara.mamanga.feature" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.alvayonara.mamanga.feature">
+
+    <application>
+        <activity
+            android:name=".DetailMangaActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

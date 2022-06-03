@@ -54,6 +54,7 @@ android {
 }
 
 dependencies {
+    implementation project(Modules.feature)
     implementation project(Modules.core)
     implementation project(Modules.navigation)
     implementation project(Modules.common)
