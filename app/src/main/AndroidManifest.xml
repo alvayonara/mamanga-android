@@ -16,7 +16,10 @@
         android:theme="@style/Theme.MaManga">
         <activity
             android:name=".ui.MaMangaActivity"
-            android:exported="true">
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
