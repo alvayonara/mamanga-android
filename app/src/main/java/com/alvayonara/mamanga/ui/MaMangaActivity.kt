@@ -1,13 +1,17 @@
 package com.alvayonara.mamanga.ui
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.alvayonara.mamanga.R
+import android.view.LayoutInflater
+import com.alvayonara.mamanga.common.base.BaseActivity
+import com.alvayonara.mamanga.databinding.ActivityMamangaBinding
 
-class MaMangaActivity : AppCompatActivity() {
+class MaMangaActivity : BaseActivity<ActivityMamangaBinding>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mamanga)
+    override val bindingInflater: (LayoutInflater) -> ActivityMamangaBinding
+        get() = ActivityMamangaBinding::inflate
+
+    override fun setup() {
+
     }
+
+    override fun inject() { }
 }

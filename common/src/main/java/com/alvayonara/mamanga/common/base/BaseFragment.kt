@@ -28,6 +28,11 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         return requireNotNull(_binding).root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        observeNavigation(getViewModel())
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setup()
@@ -60,6 +65,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        releaseAdapter()
         _binding = null
     }
 }

@@ -1,18 +1,25 @@
 package com.alvayonara.mamanga.feature.ui.discover
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.alvayonara.mamanga.feature.R
+import com.alvayonara.mamanga.common.base.BaseFragment
+import com.alvayonara.mamanga.common.base.BaseViewModel
+import com.alvayonara.mamanga.feature.databinding.FragmentDiscoverBinding
 
-class DiscoverFragment : Fragment() {
+class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_discover, container, false)
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDiscoverBinding
+        get() = FragmentDiscoverBinding::inflate
+
+    override fun setup() {
+        TODO("Not yet implemented")
+    }
+
+    override fun inject() {
+        TODO("Not yet implemented")
+    }
+
+    override fun getViewModel(): BaseViewModel {
+        TODO("Not yet implemented")
     }
 }

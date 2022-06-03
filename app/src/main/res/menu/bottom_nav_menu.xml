@@ -17,13 +17,12 @@
         android:title="@string/title_favorite" />
 
     <item
-        android:id="@+id/action_history"
+        android:id="@+id/action_recent"
         android:icon="@drawable/ic_receipt"
-        android:title="@string/title_history" />
+        android:title="@string/title_recent" />
 
     <item
         android:id="@+id/action_more"
         android:icon="@drawable/ic_more"
         android:title="@string/title_more" />
-
 </menu>
