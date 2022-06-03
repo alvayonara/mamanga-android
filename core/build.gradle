@@ -60,4 +60,7 @@ dependencies {
     // Epoxy
     implementation(Libraries.epoxy)
     kapt(Libraries.epoxyProcessor)
+
+    // Mock Web Server
+    implementation(TestLibraries.mockWebServer)
 }
