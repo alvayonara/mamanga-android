@@ -9,7 +9,10 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.airbnb.epoxy.Carousel
 import java.text.ParseException
 import java.text.SimpleDateFormat
 
@@ -32,6 +35,14 @@ fun SwipeRefreshLayout.hideLoading() {
 
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+}
+
+fun Carousel.linearLayout() {
+    this.layoutManager = LinearLayoutManager(context,  LinearLayoutManager.HORIZONTAL, false)
+}
+
+fun Carousel.gridLayout() {
+    this.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
 }
 
 inline fun <reified T : AppCompatActivity> Fragment.moveActivity(clearTop: Boolean = false) {

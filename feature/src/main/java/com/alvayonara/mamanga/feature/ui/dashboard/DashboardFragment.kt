@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alvayonara.mamanga.common.base.BaseFragment
-import com.alvayonara.mamanga.common.base.BaseViewModel
 import com.alvayonara.mamanga.core.data.domain.model.manga.Genre
 import com.alvayonara.mamanga.core.data.domain.model.manga.Result
 import com.alvayonara.mamanga.core.data.domain.model.top.Top
@@ -41,110 +40,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         dashboardController.setTop(Top("Alva Yonara Puramandya", "", "Good Night"))
 
         val newReleaseList = mutableListOf(
-            Result(
-                genres = listOf(
-                    Genre(
-                        id = 1,
-                        name = "Action"
-                    )
-                ),
-                id = "1",
-                image = "https://media.kitsu.io/manga/poster_images/38886/medium.jpg",
-                name = "Deaimon",
-                synopsis = "Nagomu Irino returns to his Kyoto home for the first time in ten years when his father is hospitalized. Nagomu is eager to take over Ryokushou, the family's Japanese sweet shop, but he's instead asked to be a father figure to Itsuka Yukihira, the girl everyone calls the successor. (Source: Manga Translation Battle)",
-                updated_chapter = "10"
-            ),
-            Result(
-                genres = listOf(
-                    Genre(
-                        id = 1,
-                        name = "Action"
-                    )
-                ),
-                id = "1",
-                image = "https://media.kitsu.io/manga/poster_images/38886/medium.jpg",
-                name = "Deaimon",
-                synopsis = "Nagomu Irino returns to his Kyoto home for the first time in ten years when his father is hospitalized. Nagomu is eager to take over Ryokushou, the family's Japanese sweet shop, but he's instead asked to be a father figure to Itsuka Yukihira, the girl everyone calls the successor. (Source: Manga Translation Battle)",
-                updated_chapter = "10"
-            ),
-            Result(
-                genres = listOf(
-                    Genre(
-                        id = 1,
-                        name = "Action"
-                    )
-                ),
-                id = "1",
-                image = "https://media.kitsu.io/manga/poster_images/38886/medium.jpg",
-                name = "Deaimon",
-                synopsis = "Nagomu Irino returns to his Kyoto home for the first time in ten years when his father is hospitalized. Nagomu is eager to take over Ryokushou, the family's Japanese sweet shop, but he's instead asked to be a father figure to Itsuka Yukihira, the girl everyone calls the successor. (Source: Manga Translation Battle)",
-                updated_chapter = "10"
-            ),
-            Result(
-                genres = listOf(
-                    Genre(
-                        id = 1,
-                        name = "Action"
-                    )
-                ),
-                id = "1",
-                image = "https://media.kitsu.io/manga/poster_images/38886/medium.jpg",
-                name = "Deaimon",
-                synopsis = "Nagomu Irino returns to his Kyoto home for the first time in ten years when his father is hospitalized. Nagomu is eager to take over Ryokushou, the family's Japanese sweet shop, but he's instead asked to be a father figure to Itsuka Yukihira, the girl everyone calls the successor. (Source: Manga Translation Battle)",
-                updated_chapter = "10"
-            ),
-            Result(
-                genres = listOf(
-                    Genre(
-                        id = 1,
-                        name = "Action"
-                    )
-                ),
-                id = "1",
-                image = "https://media.kitsu.io/manga/poster_images/38886/medium.jpg",
-                name = "Deaimon",
-                synopsis = "Nagomu Irino returns to his Kyoto home for the first time in ten years when his father is hospitalized. Nagomu is eager to take over Ryokushou, the family's Japanese sweet shop, but he's instead asked to be a father figure to Itsuka Yukihira, the girl everyone calls the successor. (Source: Manga Translation Battle)",
-                updated_chapter = "10"
-            ),
-            Result(
-                genres = listOf(
-                    Genre(
-                        id = 1,
-                        name = "Action"
-                    )
-                ),
-                id = "1",
-                image = "https://media.kitsu.io/manga/poster_images/38886/medium.jpg",
-                name = "Deaimon",
-                synopsis = "Nagomu Irino returns to his Kyoto home for the first time in ten years when his father is hospitalized. Nagomu is eager to take over Ryokushou, the family's Japanese sweet shop, but he's instead asked to be a father figure to Itsuka Yukihira, the girl everyone calls the successor. (Source: Manga Translation Battle)",
-                updated_chapter = "10"
-            ),
-            Result(
-                genres = listOf(
-                    Genre(
-                        id = 1,
-                        name = "Action"
-                    )
-                ),
-                id = "1",
-                image = "https://media.kitsu.io/manga/poster_images/38886/medium.jpg",
-                name = "Deaimon",
-                synopsis = "Nagomu Irino returns to his Kyoto home for the first time in ten years when his father is hospitalized. Nagomu is eager to take over Ryokushou, the family's Japanese sweet shop, but he's instead asked to be a father figure to Itsuka Yukihira, the girl everyone calls the successor. (Source: Manga Translation Battle)",
-                updated_chapter = "10"
-            ),
-            Result(
-                genres = listOf(
-                    Genre(
-                        id = 1,
-                        name = "Action"
-                    )
-                ),
-                id = "1",
-                image = "https://media.kitsu.io/manga/poster_images/38886/medium.jpg",
-                name = "Deaimon",
-                synopsis = "Nagomu Irino returns to his Kyoto home for the first time in ten years when his father is hospitalized. Nagomu is eager to take over Ryokushou, the family's Japanese sweet shop, but he's instead asked to be a father figure to Itsuka Yukihira, the girl everyone calls the successor. (Source: Manga Translation Battle)",
-                updated_chapter = "10"
-            ),
             Result(
                 genres = listOf(
                     Genre(
