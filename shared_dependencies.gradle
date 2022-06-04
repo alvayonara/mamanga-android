@@ -49,4 +49,8 @@ dependencies {
 
     // Leak Canary
     debugImplementation(Libraries.leakCanary)
+
+    // Epoxy
+    implementation(Libraries.epoxy)
+    kapt(Libraries.epoxy)
 }

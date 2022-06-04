@@ -53,6 +53,7 @@ object Versions {
     val shimmer = "0.5.0"
     val epoxy = "4.6.3"
     val chucker = "3.5.2"
+    val gravitySnapHelper = "2.2.2"
     val leakCanary = "2.9.1"
     val scrollingPageIndicator = "1.0.6"
     val activityKtx = "1.4.0"
@@ -94,6 +95,8 @@ object Libraries {
     val chuckerRelease = "com.github.chuckerteam.chucker:library-no-op:${Versions.chucker}"
     // LEAK CANARY
     val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakCanary}"
+    // GRAVITY SNAP HELPER
+    val gravitySnapHelper = "com.github.rubensousa:gravitysnaphelper:${Versions.gravitySnapHelper}"
     // SCROLLING PAGE INDICATOR
     val scrollingPageIndicator = "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:${Versions.scrollingPageIndicator}"
     // COMPRESSOR

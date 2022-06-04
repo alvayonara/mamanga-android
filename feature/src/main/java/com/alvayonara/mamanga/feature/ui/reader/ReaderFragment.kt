@@ -12,14 +12,12 @@ class ReaderFragment : BaseFragment<FragmentReaderBinding>() {
         get() = FragmentReaderBinding::inflate
 
     override fun setup() {
-        TODO("Not yet implemented")
     }
 
     override fun inject() {
-        TODO("Not yet implemented")
     }
 
-    override fun getViewModel(): BaseViewModel {
-        TODO("Not yet implemented")
-    }
+//    override fun getViewModel(): BaseViewModel {
+//        TODO("Not yet implemented")
+//    }
 }

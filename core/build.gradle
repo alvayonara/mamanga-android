@@ -54,12 +54,11 @@ dependencies {
     api(AndroidLibraries.activityKtx)
     api(AndroidLibraries.fragmentKtx)
 
+    // Gravity Snap Helper
+    implementation(Libraries.gravitySnapHelper)
+
     // Scroll Page Indicator
     implementation(Libraries.scrollingPageIndicator)
-
-    // Epoxy
-    implementation(Libraries.epoxy)
-    kapt(Libraries.epoxyProcessor)
 
     // Mock Web Server
     implementation(TestLibraries.mockWebServer)

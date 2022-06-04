@@ -30,7 +30,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        observeNavigation(getViewModel())
+//        observeNavigation(getViewModel())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +45,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun setup()
     abstract fun inject()
-    abstract fun getViewModel(): BaseViewModel
+//    abstract fun getViewModel(): BaseViewModel
 
     protected open fun setupView() {}
     protected open fun setupRecyclerView() {}
