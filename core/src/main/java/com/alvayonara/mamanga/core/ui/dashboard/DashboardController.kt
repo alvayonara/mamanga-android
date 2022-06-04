@@ -2,14 +2,13 @@ package com.alvayonara.mamanga.core.ui.dashboard
 
 import android.content.Context
 import android.view.Gravity
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SnapHelper
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
-import com.airbnb.epoxy.ModelView
 import com.alvayonara.mamanga.common.extension.gone
+import com.alvayonara.mamanga.common.extension.gridLayout
+import com.alvayonara.mamanga.common.extension.linearLayout
 import com.alvayonara.mamanga.common.extension.visible
 import com.alvayonara.mamanga.common.utils.ViewBindingKotlinModel
 import com.alvayonara.mamanga.core.R
@@ -90,6 +89,9 @@ class DashboardController(private val context: Context) : EpoxyController() {
                         .id("new.release.$index")
                 }
             )
+            .onBind { _, view, _ ->
+                view.linearLayout()
+            }
             .addIf(this._newRelease.isNotEmpty(), this)
 
         HeaderModel(context, Header.CONTINUE_READ)
@@ -105,6 +107,9 @@ class DashboardController(private val context: Context) : EpoxyController() {
                         .id("continue.read.$index")
                 }
             )
+            .onBind { _, view, _ ->
+                view.linearLayout()
+            }
             .addIf(this._continueRead.isNotEmpty(), this)
 
         HeaderModel(context, Header.UPDATE)
@@ -120,19 +125,28 @@ class DashboardController(private val context: Context) : EpoxyController() {
                         .id("update.$index")
                 }
             )
+            .onBind { _, view, _ ->
+                view.linearLayout()
+            }
             .addIf(this._update.isNotEmpty(), this)
 
         HeaderModel(context, Header.POPULAR)
             .id("header.popular")
             .addIf(this._mostPopular.isNotEmpty(), this)
 
-        GridCarousel(context)
-            .setModels(
+        CarouselModel_()
+            .padding(Carousel.Padding.dp(20, 0, 20, 26, 12))
+            .id("most.popular")
+            .models(
                 this._mostPopular.mapIndexed { index, manga ->
-                    ReleaseSoonModel(context, manga)
-                        .id("release.soon.$index")
+                    PopularModel(context, manga)
+                        .id("most.popular.$index")
                 }
             )
+            .onBind { _, view, _ ->
+                view.gridLayout()
+            }
+            .addIf(this._mostPopular.isNotEmpty(), this)
 
         HeaderModel(context, Header.RELEASE_SOON)
             .id("header.release.soon")
@@ -147,6 +161,9 @@ class DashboardController(private val context: Context) : EpoxyController() {
                         .id("release.soon.$index")
                 }
             )
+            .onBind { _, view, _ ->
+                view.linearLayout()
+            }
             .addIf(this._releaseSoon.isNotEmpty(), this)
     }
 }
@@ -182,13 +199,16 @@ data class HeaderModel(
         tvHeaderTitle.text = headerTitle
         tvHeaderSubtitle.text = headerSubtitle
 
-        if (header == Header.RELEASE_SOON) {
-            clShowMore.gone()
-        } else {
-            if (header == Header.CONTINUE_READ) {
+        when (header) {
+            Header.CONTINUE_READ -> {
                 tvHeaderSubtitle.gone()
                 clShowMore.gone()
-            } else {
+            }
+            Header.RELEASE_SOON -> {
+                tvHeaderSubtitle.visible()
+                clShowMore.gone()
+            }
+            else -> {
                 tvHeaderSubtitle.visible()
                 clShowMore.visible()
             }
@@ -259,6 +279,28 @@ data class ContinueReadModel(
     }
 }
 
+data class PopularModel(
+    val context: Context,
+    val manga: Result
+) : ViewBindingKotlinModel<ItemListMangaPopularBinding>(R.layout.item_list_manga_popular) {
+
+    override fun ItemListMangaPopularBinding.bind() {
+        manga.apply {
+            Glide.with(context)
+                .load(image)
+                .into(ivPoster)
+
+            tvTitle.text = name
+
+            var genre = ""
+            genres.forEach {
+                genre += it.name
+            }
+            tvGenre.text = genre
+        }
+    }
+}
+
 data class UpdateModel(
     val context: Context,
     val manga: Result
@@ -302,16 +344,6 @@ data class ReleaseSoonModel(
             }
             tvGenre.text = genre
         }
-    }
-}
-
-@ModelView(saveViewState = true, autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
-class GridCarousel(context: Context?) : Carousel(context) {
-    override fun createLayoutManager(): LayoutManager =
-        GridLayoutManager(context, SPAN_COUNT, LinearLayoutManager.HORIZONTAL, false)
-
-    companion object {
-        private const val SPAN_COUNT = 3
     }
 }
 
