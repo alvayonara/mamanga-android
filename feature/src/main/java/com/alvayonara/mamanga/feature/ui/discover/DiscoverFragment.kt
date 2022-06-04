@@ -12,14 +12,12 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>() {
         get() = FragmentDiscoverBinding::inflate
 
     override fun setup() {
-        TODO("Not yet implemented")
     }
 
     override fun inject() {
-        TODO("Not yet implemented")
     }
 
-    override fun getViewModel(): BaseViewModel {
-        TODO("Not yet implemented")
-    }
+//    override fun getViewModel(): BaseViewModel {
+//        TODO("Not yet implemented")
+//    }
 }
