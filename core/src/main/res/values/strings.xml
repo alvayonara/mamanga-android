@@ -6,5 +6,25 @@
     <string name="synopsis">Synopsis</string>
     <string name="download">Download</string>
     <string name="dummy_text_synopsis">UQ Holder! follows the exploits of Tota Konoe, the grandson of Negima! protagonist Negi Springfield, as he gets turned into a vampire by Yukihime (actually Evangeline from Negima!) in order to save his life. Now immortal, Tota gets introduced to Yukihime\'s UQ Holder group and learns to control his new magical powers.</string>
+    <string name="last_chapter">Ch. %s</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Epoxy -->
+    <string name="top">top</string>
+    <string name="header_new_release">header.new.release</string>
+    <string name="new_release_carousel">new.releases</string>
+    <string name="new_release">new.release.%d</string>
+    <string name="header_continue_read">header.continue.read</string>
+    <string name="continue_read_carousel">continue.read</string>
+    <string name="continue_read">continue.read.%d</string>
+    <string name="header_update">header.update</string>
+    <string name="update_carousel">update</string>
+    <string name="update">update.%d</string>
+    <string name="header_popular">header.popular</string>
+    <string name="popular_carousel">popular</string>
+    <string name="popular">popular.%d</string>
+    <string name="header_release_soon">header.release.soon</string>
+    <string name="release_soon_carousel">release.soon</string>
+    <string name="release_soon">release.soon.%d</string>
+
 </resources>
