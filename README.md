@@ -1,5 +1,5 @@
 # MaManga: Android
-<a href="https://www.buymeacoffee.com/alvayonara" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+<a href="https://www.buymeacoffee.com/alvayonara" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 170px !important;" ></a>
 
 🎎 Browse and read manga for Android using Kotlin, MVVM, Dagger2, RxJava2, Modularization, Clean Architecture, Airbnb Epoxy, Unit Test.
 
