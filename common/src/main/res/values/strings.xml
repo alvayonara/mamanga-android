@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_new_release">New Release!</string>
+    <string name="subtitle_new_release">Read the latest manga recommendations</string>
+    <string name="title_continue_read">Continue Reading</string>
+    <string name="title_update">Update Manga</string>
+    <string name="subtitle_update">Don\'t miss this week\'s update</string>
+    <string name="title_popular">Most Popular Manga</string>
+    <string name="subtitle_popular">Lots of interesting manga here</string>
+    <string name="title_release_soon">Release Soon!</string>
+    <string name="subtitle_release_soon">Keep watching, wait for the latest manga</string>
+</resources>

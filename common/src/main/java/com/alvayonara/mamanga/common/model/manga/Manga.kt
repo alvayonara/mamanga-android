@@ -1,4 +1,4 @@
-package com.alvayonara.mamanga.core.data.domain.model.manga
+package com.alvayonara.mamanga.common.model.manga
 
 data class Manga(
     val code: Int,

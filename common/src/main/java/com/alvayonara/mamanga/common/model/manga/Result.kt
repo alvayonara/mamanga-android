@@ -1,4 +1,4 @@
-package com.alvayonara.mamanga.core.data.domain.model.manga
+package com.alvayonara.mamanga.common.model.manga
 
 data class Result(
     val genres: List<Genre>,
@@ -6,5 +6,5 @@ data class Result(
     val image: String,
     val name: String,
     val synopsis: String,
-    val updated_chapter: String
+    val updatedChapter: String
 )

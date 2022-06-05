@@ -12,8 +12,10 @@ import com.alvayonara.mamanga.common.extension.linearLayout
 import com.alvayonara.mamanga.common.extension.visible
 import com.alvayonara.mamanga.common.utils.ViewBindingKotlinModel
 import com.alvayonara.mamanga.core.R
-import com.alvayonara.mamanga.core.data.domain.model.header.Header
-import com.alvayonara.mamanga.core.data.domain.model.manga.Result
+import com.alvayonara.mamanga.common.model.header.Header
+import com.alvayonara.mamanga.common.utils.Helper
+import com.alvayonara.mamanga.common.utils.Helper.getDashboardHeader
+import com.alvayonara.mamanga.common.model.manga.Result
 import com.alvayonara.mamanga.core.data.domain.model.top.Top
 import com.alvayonara.mamanga.core.databinding.*
 import com.bumptech.glide.Glide
@@ -30,7 +32,6 @@ class DashboardController(private val context: Context) : EpoxyController() {
 
     fun setTop(data: Top) {
         this._top = data
-        requestModelBuild()
         requestModelBuild()
     }
 
@@ -72,21 +73,21 @@ class DashboardController(private val context: Context) : EpoxyController() {
 
         this._top?.let {
             TopModel(context, it)
-                .id("top")
+                .id(context.getString(R.string.top))
                 .addTo(this)
         }
 
         HeaderModel(context, Header.NEW_RELEASE)
-            .id("header.new.release")
+            .id(context.getString(R.string.header_new_release))
             .addIf(this._newRelease.isNotEmpty(), this)
 
         CarouselModel_()
             .padding(Carousel.Padding.dp(26, 0, 26, 26, 16))
-            .id("new.releases")
+            .id(context.getString(R.string.new_release_carousel))
             .models(
                 this._newRelease.mapIndexed { index, manga ->
                     NewReleaseModel(context, manga)
-                        .id("new.release.$index")
+                        .id(context.getString(R.string.new_release, index))
                 }
             )
             .onBind { _, view, _ ->
@@ -95,16 +96,16 @@ class DashboardController(private val context: Context) : EpoxyController() {
             .addIf(this._newRelease.isNotEmpty(), this)
 
         HeaderModel(context, Header.CONTINUE_READ)
-            .id("header.continue.read")
+            .id(context.getString(R.string.header_continue_read))
             .addIf(this._continueRead.isNotEmpty(), this)
 
         CarouselModel_()
             .padding(Carousel.Padding.dp(26, 0, 26, 26, 16))
-            .id("continue.read")
+            .id(context.getString(R.string.continue_read_carousel))
             .models(
                 this._continueRead.mapIndexed { index, manga ->
                     ContinueReadModel(context, manga)
-                        .id("continue.read.$index")
+                        .id(context.getString(R.string.continue_read, index))
                 }
             )
             .onBind { _, view, _ ->
@@ -113,16 +114,16 @@ class DashboardController(private val context: Context) : EpoxyController() {
             .addIf(this._continueRead.isNotEmpty(), this)
 
         HeaderModel(context, Header.UPDATE)
-            .id("header.update")
+            .id(context.getString(R.string.header_update))
             .addIf(this._update.isNotEmpty(), this)
 
         CarouselModel_()
             .padding(Carousel.Padding.dp(26, 0, 26, 26, 16))
-            .id("update")
+            .id(context.getString(R.string.update_carousel))
             .models(
                 this._update.mapIndexed { index, manga ->
                     UpdateModel(context, manga)
-                        .id("update.$index")
+                        .id(context.getString(R.string.update, index))
                 }
             )
             .onBind { _, view, _ ->
@@ -131,16 +132,16 @@ class DashboardController(private val context: Context) : EpoxyController() {
             .addIf(this._update.isNotEmpty(), this)
 
         HeaderModel(context, Header.POPULAR)
-            .id("header.popular")
+            .id(context.getString(R.string.header_popular))
             .addIf(this._mostPopular.isNotEmpty(), this)
 
         CarouselModel_()
             .padding(Carousel.Padding.dp(20, 0, 20, 26, 12))
-            .id("most.popular")
+            .id(context.getString(R.string.popular_carousel))
             .models(
                 this._mostPopular.mapIndexed { index, manga ->
                     PopularModel(context, manga)
-                        .id("most.popular.$index")
+                        .id(context.getString(R.string.popular, index))
                 }
             )
             .onBind { _, view, _ ->
@@ -149,16 +150,16 @@ class DashboardController(private val context: Context) : EpoxyController() {
             .addIf(this._mostPopular.isNotEmpty(), this)
 
         HeaderModel(context, Header.RELEASE_SOON)
-            .id("header.release.soon")
+            .id(context.getString(R.string.header_release_soon))
             .addIf(this._releaseSoon.isNotEmpty(), this)
 
         CarouselModel_()
             .padding(Carousel.Padding.dp(26, 0, 26, 26, 16))
-            .id("release.soon")
+            .id(context.getString(R.string.release_soon_carousel))
             .models(
                 this._releaseSoon.mapIndexed { index, manga ->
                     ReleaseSoonModel(context, manga)
-                        .id("release.soon.$index")
+                        .id(context.getString(R.string.release_soon, index))
                 }
             )
             .onBind { _, view, _ ->
@@ -174,31 +175,8 @@ data class HeaderModel(
 ) : ViewBindingKotlinModel<ItemListHeaderBinding>(R.layout.item_list_header) {
 
     override fun ItemListHeaderBinding.bind() {
-        var headerTitle = ""
-        var headerSubtitle = ""
-        when (header) {
-            Header.NEW_RELEASE -> {
-                headerTitle = "New Release!"
-                headerSubtitle = "Read the latest manga recommendations"
-            }
-            Header.CONTINUE_READ -> headerTitle = "Continue Reading"
-            Header.UPDATE -> {
-                headerTitle = "Update Manga"
-                headerSubtitle = "Don't miss this week's update"
-            }
-            Header.POPULAR -> {
-                headerTitle = "Most Popular Manga"
-                headerSubtitle = "Lots of interesting manga here"
-            }
-            Header.RELEASE_SOON -> {
-                headerTitle = "Release Soon!"
-                headerSubtitle = "Keep watching, wait for the latest manga"
-            }
-        }
-
-        tvHeaderTitle.text = headerTitle
-        tvHeaderSubtitle.text = headerSubtitle
-
+        tvHeaderTitle.text = context.getDashboardHeader(header).first
+        tvHeaderSubtitle.text = context.getDashboardHeader(header).second
         when (header) {
             Header.CONTINUE_READ -> {
                 tvHeaderSubtitle.gone()
@@ -237,22 +215,14 @@ data class NewReleaseModel(
     override fun ItemListNewReleaseBinding.bind() {
         manga.apply {
             tvTitle.text = manga.name
-
             tvSynopsis.text = manga.synopsis
-
             Glide.with(context)
                 .load(manga.image)
                 .into(ivPosterOuter)
-
             Glide.with(context)
                 .load(manga.image)
                 .into(ivPosterInner)
-
-            var genre = ""
-            manga.genres.forEach {
-                genre += it.name
-            }
-            tvGenre.text = genre
+            tvGenre.text = Helper.generateMangaGenre(manga.genres)
         }
     }
 }
@@ -265,13 +235,7 @@ data class ContinueReadModel(
     override fun ItemListContinueReadBinding.bind() {
         manga.apply {
             tvTitle.text = name
-
-            var genre = ""
-            genres.forEach {
-                genre += it.name
-            }
-            tvGenre.text = genre
-
+            tvGenre.text = Helper.generateMangaGenre(manga.genres)
             Glide.with(context)
                 .load(image)
                 .into(ivPoster)
@@ -289,14 +253,8 @@ data class PopularModel(
             Glide.with(context)
                 .load(image)
                 .into(ivPoster)
-
             tvTitle.text = name
-
-            var genre = ""
-            genres.forEach {
-                genre += it.name
-            }
-            tvGenre.text = genre
+            tvGenre.text = Helper.generateMangaGenre(manga.genres)
         }
     }
 }
@@ -311,16 +269,9 @@ data class UpdateModel(
             Glide.with(context)
                 .load(image)
                 .into(ivPoster)
-
             tvTitle.text = name
-
-            tvLastChapter.text = "Ch. ${updated_chapter}"
-
-            var genre = ""
-            genres.forEach {
-                genre += it.name
-            }
-            tvGenre.text = genre
+            tvLastChapter.text = context.getString(R.string.last_chapter, manga.updatedChapter)
+            tvGenre.text = Helper.generateMangaGenre(manga.genres)
         }
     }
 }
@@ -335,14 +286,8 @@ data class ReleaseSoonModel(
             Glide.with(context)
                 .load(image)
                 .into(ivPoster)
-
             tvTitle.text = name
-
-            var genre = ""
-            genres.forEach {
-                genre += it.name
-            }
-            tvGenre.text = genre
+            tvGenre.text = Helper.generateMangaGenre(manga.genres)
         }
     }
 }
