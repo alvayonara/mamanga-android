@@ -16,7 +16,7 @@ import com.alvayonara.mamanga.common.model.header.Header
 import com.alvayonara.mamanga.common.utils.Helper
 import com.alvayonara.mamanga.common.utils.Helper.getDashboardHeader
 import com.alvayonara.mamanga.common.model.manga.Result
-import com.alvayonara.mamanga.core.data.domain.model.top.Top
+import com.alvayonara.mamanga.common.model.top.Top
 import com.alvayonara.mamanga.core.databinding.*
 import com.bumptech.glide.Glide
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
@@ -222,7 +222,7 @@ data class NewReleaseModel(
             Glide.with(context)
                 .load(manga.image)
                 .into(ivPosterInner)
-            tvGenre.text = Helper.generateMangaGenre(manga.genres)
+            tvGenre.text = manga.genres?.let { Helper.generateMangaGenre(it) }
         }
     }
 }
@@ -235,7 +235,7 @@ data class ContinueReadModel(
     override fun ItemListContinueReadBinding.bind() {
         manga.apply {
             tvTitle.text = name
-            tvGenre.text = Helper.generateMangaGenre(manga.genres)
+            tvGenre.text = manga.genres?.let { Helper.generateMangaGenre(it) }
             Glide.with(context)
                 .load(image)
                 .into(ivPoster)
@@ -254,7 +254,7 @@ data class PopularModel(
                 .load(image)
                 .into(ivPoster)
             tvTitle.text = name
-            tvGenre.text = Helper.generateMangaGenre(manga.genres)
+            tvGenre.text = manga.genres?.let { Helper.generateMangaGenre(it) }
         }
     }
 }
@@ -271,7 +271,7 @@ data class UpdateModel(
                 .into(ivPoster)
             tvTitle.text = name
             tvLastChapter.text = context.getString(R.string.last_chapter, manga.updatedChapter)
-            tvGenre.text = Helper.generateMangaGenre(manga.genres)
+            tvGenre.text = manga.genres?.let { Helper.generateMangaGenre(it) }
         }
     }
 }
@@ -287,7 +287,7 @@ data class ReleaseSoonModel(
                 .load(image)
                 .into(ivPoster)
             tvTitle.text = name
-            tvGenre.text = Helper.generateMangaGenre(manga.genres)
+            tvGenre.text = manga.genres?.let { Helper.generateMangaGenre(it) }
         }
     }
 }

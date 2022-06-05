@@ -1,4 +1,4 @@
-package com.alvayonara.mamanga.core.data.domain.model.top
+package com.alvayonara.mamanga.common.model.top
 
 data class Top(
     val name: String,
