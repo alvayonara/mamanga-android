@@ -34,6 +34,7 @@ BASE_URL="https://private-6b4941-mamanga.apiary-mock.com/"
 * [Dagger 2](https://dagger.dev/) - dependency injection.
 * [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) - separates code into layers.
 * [Modularization](https://developer.android.com/guide/app-bundle/play-feature-delivery/) - separating logical components of project into discrete modules.
+* [Epoxy](https://github.com/airbnb/epoxy) - library for building complex screens in a RecyclerView.
 * [Retrofit2](https://github.com/square/retrofit/) - REST APIs.
 * [GSON](https://github.com/google/gson/) - JSON serialization.
 * [Event Wrapper](https://medium.com/androiddevelopers/livedata-with-snackbar-navigation-and-other-events-the-singleliveevent-case-ac2622673150) - ensure LiveData observing once. 
