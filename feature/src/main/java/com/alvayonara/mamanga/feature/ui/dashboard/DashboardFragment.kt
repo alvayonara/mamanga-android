@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alvayonara.mamanga.common.base.BaseFragment
 import com.alvayonara.mamanga.common.model.manga.Genre
 import com.alvayonara.mamanga.common.model.manga.Result
-import com.alvayonara.mamanga.core.data.domain.model.top.Top
+import com.alvayonara.mamanga.common.model.top.Top
 import com.alvayonara.mamanga.core.ui.dashboard.DashboardController
 import com.alvayonara.mamanga.feature.databinding.FragmentDashboardBinding
 
