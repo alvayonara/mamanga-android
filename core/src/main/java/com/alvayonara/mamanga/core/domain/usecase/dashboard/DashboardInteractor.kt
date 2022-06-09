@@ -1,6 +1,5 @@
 package com.alvayonara.mamanga.core.domain.usecase.dashboard
 
-import com.alvayonara.mamanga.common.model.manga.Manga
 import com.alvayonara.mamanga.common.model.manga.Result
 import com.alvayonara.mamanga.core.domain.repository.DashboardRepository
 import io.reactivex.Observable
